@@ -21,10 +21,11 @@ const searchFilter = (data) => {
   let filter = document.querySelector("#selector").value;
 
   if (filter === "name") {
+    console.log("we re in name selector else my friend!");
     const result = data.filter((name) => query === name.name.toLowerCase());
     resutl.push(result);
     resutl.forEach((element, idx) => {
-      portfolio.innerHTML += `<div class="card">
+      portfolio.innerHTML = `<div class="card">
         <div class="card-body">
           <h5 class="card-title">${element[idx].name}</h5>
           <p class="card-text"><b>username</b> : ${element[idx].username}</p>
@@ -37,8 +38,13 @@ const searchFilter = (data) => {
       </div>`;
       // Initialize and add the map
       function initMap() {
+        console.log();
         // The location of Uluru
-        const uluru = `${element[idx].address.geo}`;
+        let position = {
+          lat: parseFloat(`${element[idx].address.geo.lat}`),
+          lng: parseFloat(`${element[idx].address.geo.lng}`),
+        };
+        const uluru = position;
         // The map, centered at Uluru
         const map = new google.maps.Map(document.getElementById("map"), {
           zoom: 4,
@@ -50,13 +56,92 @@ const searchFilter = (data) => {
           map: map,
         });
       }
+      initMap();
     });
 
     console.log(resutl);
   } else if (filter === "username") {
     console.log("we re in username selector else my friend!");
+    const result = data.filter(
+      (username) => query === username.username.toLowerCase()
+    );
+    resutl.push(result);
+    resutl.forEach((element, idx) => {
+      portfolio.innerHTML = `<div class="card">
+        <div class="card-body">
+          <h5 class="card-title">${element[idx].name}</h5>
+          <p class="card-text"><b>username</b> : ${element[idx].username}</p>
+          <a href="${element[idx].website}"><b>website</b> :${element[idx].website}</a>
+          <p class="card-text"><b>phone</b> : ${element[idx].phone}</p>
+          <p class="card-text"><b>email</b> : ${element[idx].email}</p>
+          <p class="card-text"><small class="text-muted"><b>id</b> : ${element[idx].id}</small></p>
+        </div>
+        <div id="map"></div>
+      </div>`;
+      // Initialize and add the map
+      function initMap() {
+        console.log();
+        // The location of Uluru
+        let position = {
+          lat: parseFloat(`${element[idx].address.geo.lat}`),
+          lng: parseFloat(`${element[idx].address.geo.lng}`),
+        };
+        const uluru = position;
+        // The map, centered at Uluru
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 4,
+          center: uluru,
+        });
+        // The marker, positioned at Uluru
+        const marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+        });
+      }
+      initMap();
+    });
+
+    console.log(resutl);
   } else if (filter === "email") {
     console.log("we re in email selector else my friend!");
+    const result = data.filter((email) => query === email.email.toLowerCase());
+    resutl.push(result);
+    resutl.forEach((element, idx) => {
+      portfolio.innerHTML = `<div class="card">
+          <div class="card-body">
+            <h5 class="card-title">${element[idx].name}</h5>
+            <p class="card-text"><b>username</b> : ${element[idx].username}</p>
+            <a href="${element[idx].website}"><b>website</b> :${element[idx].website}</a>
+            <p class="card-text"><b>phone</b> : ${element[idx].phone}</p>
+            <p class="card-text"><b>email</b> : ${element[idx].email}</p>
+            <p class="card-text"><small class="text-muted"><b>id</b> : ${element[idx].id}</small></p>
+          </div>
+          <div id="map"></div>
+        </div>`;
+      // Initialize and add the map
+      function initMap() {
+        console.log();
+        // The location of Uluru
+        let position = {
+          lat: parseFloat(`${element[idx].address.geo.lat}`),
+          lng: parseFloat(`${element[idx].address.geo.lng}`),
+        };
+        const uluru = position;
+        // The map, centered at Uluru
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 4,
+          center: uluru,
+        });
+        // The marker, positioned at Uluru
+        const marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+        });
+      }
+      initMap();
+    });
+
+    console.log(resutl);
   }
 
   console.log(query);
