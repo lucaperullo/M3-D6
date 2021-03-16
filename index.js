@@ -32,6 +32,7 @@ const searchFilter = (data) => {
           <a href="${element[idx].website}"><b>website</b> :${element[idx].website}</a>
           <p class="card-text"><b>phone</b> : ${element[idx].phone}</p>
           <p class="card-text"><b>email</b> : ${element[idx].email}</p>
+          <p class="card-text"><b>address</b> : ${element[idx].address.street}, ${element[idx].address.suite}, ${element[idx].address.city} (${element[idx].address.zipcode}) </p>
           <p class="card-text"><small class="text-muted"><b>id</b> : ${element[idx].id}</small></p>
         </div>
         <div id="map"></div>
@@ -74,6 +75,7 @@ const searchFilter = (data) => {
           <a href="${element[idx].website}"><b>website</b> :${element[idx].website}</a>
           <p class="card-text"><b>phone</b> : ${element[idx].phone}</p>
           <p class="card-text"><b>email</b> : ${element[idx].email}</p>
+          <p class="card-text"><b>address</b> : ${element[idx].address.street}, ${element[idx].address.suite}, ${element[idx].address.city} (${element[idx].address.zipcode}) </p>
           <p class="card-text"><small class="text-muted"><b>id</b> : ${element[idx].id}</small></p>
         </div>
         <div id="map"></div>
@@ -114,6 +116,7 @@ const searchFilter = (data) => {
             <a href="${element[idx].website}"><b>website</b> :${element[idx].website}</a>
             <p class="card-text"><b>phone</b> : ${element[idx].phone}</p>
             <p class="card-text"><b>email</b> : ${element[idx].email}</p>
+            <p class="card-text"><b>address</b> : ${element[idx].address.street}, ${element[idx].address.suite}, ${element[idx].address.city} (${element[idx].address.zipcode}) </p>
             <p class="card-text"><small class="text-muted"><b>id</b> : ${element[idx].id}</small></p>
           </div>
           <div id="map"></div>
