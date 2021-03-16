@@ -3,6 +3,8 @@
   justify-content: space-between;
 }
 .input-group {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 20px;
   height: 45px;
 }
 #map {
@@ -12,20 +14,45 @@
   /* The width is the width of the web page */
 }
 html {
-  font-family: "Poppins", sans-serif !important;
   background-image: url("https://media.discordapp.net/attachments/816755257936969748/819638710214852638/ignasi_pattern_s.png");
   background-color: rgb(70, 66, 66);
+  padding-bottom: 100px;
 }
 nav {
   background-color: rgb(218, 159, 159);
-  background-image: url("https://media.discordapp.net/attachments/816755257936969748/819638710214852638/ignasi_pattern_s.png");
+  background-image: url("https://media.discordapp.net/attachments/816755257936969748/821458894248607808/mochaGrunge_2X.png?width=603&height=603");
+}
+.picture {
+  display: flex;
+  justify-content: space-between;
+}
+.picture img {
+  border-radius: 50%;
+}
+#allUsers {
+  padding: 100px 100px 0px 100px;
+  color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-image: url("https://media.discordapp.net/attachments/816755257936969748/821458409798893629/doodles.png");
 }
 .card {
-  padding: 10px 200px 110px;
-  border-radius: 0px !important;
-  width: 100%;
-  background-image: url("https://media.discordapp.net/attachments/816755257936969748/819631374377943050/wood-pattern.png");
-  background-color: rgb(238, 220, 192);
+  transition: 0.55s ease;
+  border-radius: 15px !important;
+  padding: 20px;
+  margin-bottom: 20px;
+  font-family: "Poppins", sans-serif !important;
+
+  width: auto;
+  backdrop-filter: blur(2px);
+  background-color: #4b494950;
+}
+.card:hover {
+  border-radius: 25px !important;
+  box-shadow: inset 0px 0px 13px;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
 }
 .container-fluid {
   padding: 0 !important;
@@ -75,6 +102,13 @@ nav {
     background-position: 400%;
   }
 }
+.navbar {
+  box-shadow: 0px 7px 20px 0px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
 #sort-button:before {
   content: "";
 
@@ -112,14 +146,14 @@ nav {
   }
 }
 #loading {
-  height: 100vh;
+  height: 110vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
 }
 .dunya {
-  width: 25%;
+  width: 500px;
   height: 50vh;
   background: url(https://1.bp.blogspot.com/-UUXaK5GCj-k/UcsKJRMgkVI/AAAAAAAACfM/sePP_H08JTQ/s1600/1.jpg);
   border-radius: 100%;
