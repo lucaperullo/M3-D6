@@ -1,9 +1,113 @@
 .input-group-prepend {
   display: flex;
+  justify-content: space-between;
+}
+.input-group {
+  height: 45px;
 }
 #map {
   height: 400px;
   /* The height is 400 pixels */
   width: 100%;
   /* The width is the width of the web page */
+}
+html {
+  font-family: "Poppins", sans-serif !important;
+  background-image: url("https://media.discordapp.net/attachments/816755257936969748/819638710214852638/ignasi_pattern_s.png");
+  background-color: rgb(70, 66, 66);
+}
+nav {
+  background-color: rgb(218, 159, 159);
+  background-image: url("https://media.discordapp.net/attachments/816755257936969748/819638710214852638/ignasi_pattern_s.png");
+}
+.card {
+  padding: 10px 200px 110px;
+  border-radius: 0px !important;
+  width: 100%;
+  background-image: url("https://media.discordapp.net/attachments/816755257936969748/819631374377943050/wood-pattern.png");
+  background-color: rgb(238, 220, 192);
+}
+.container-fluid {
+  padding: 0 !important;
+}
+.form-search {
+  border: none;
+  outline: none !important;
+}
+.btn {
+  background-image: url("https://media.discordapp.net/attachments/816755257936969748/819631374377943050/wood-pattern.png");
+  background-color: rgb(238, 220, 192);
+}
+#selector {
+  outline: none;
+  margin-right: 10vw;
+  width: 200px;
+}
+/* beutifull magic button */
+#sort-button {
+  text-decoration: none;
+  text-align: center;
+
+  color: #fff;
+
+  text-transform: uppercase;
+  box-sizing: border-box;
+  background: linear-gradient(
+    90deg,
+    #153479,
+    #135197,
+    #16549b,
+    #14268b,
+    #153479
+  );
+  background-size: 400%;
+}
+#sort-button:hover {
+  color: whitesmoke;
+  text-decoration: none;
+  animation: animate 3s linear infinite;
+}
+@keyframes animate {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
+}
+#sort-button:before {
+  content: "";
+
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    #153479,
+    #135197,
+    #16549b,
+    #14268b,
+    #153479
+  );
+  background-size: 400%;
+  border-radius: 40px;
+  filter: blur(20px);
+  opacity: 0;
+  transition: 0.5s;
+}
+#sort-button:hover:before {
+  filter: blur(20px);
+  opacity: 1;
+  animation: animate 3s linear infinite;
+}
+#sort-button:hover {
+  color: whitesmoke;
+  text-decoration: none;
+  animation: animate 3s linear infinite;
+}
+@keyframes animate {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
 }

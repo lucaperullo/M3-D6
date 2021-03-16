@@ -4,7 +4,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+   
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
@@ -12,11 +13,12 @@
       integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
       crossorigin="anonymous"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
     <title>Hello, world!</title>
   </head>
   <body>
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar">
         <div class="input-group mb-3">
           <div class="input-group-prepend mx-auto">
             <select name="search" id="selector">
@@ -26,11 +28,17 @@
             </select>
             <input
               type="text"
-              class="form-control"
+              class="form-search"
               aria-label="Text input with dropdown button"
               id="searchbar"
             />
-            <button type="button" class="btn btn-primary">Sort</button>
+            <button
+           type="button"
+            id="sort-button"
+            class="btn log "
+          >
+            sort
+          </button>
         </div>
       </nav>
   

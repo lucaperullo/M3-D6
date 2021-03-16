@@ -1,5 +1,6 @@
-const startEngine = () => {
-  fetchUsers();
+const startEngine = async () => {
+  await fetchUsers();
+  await initMap();
 };
 
 async function fetchUsers() {
@@ -57,7 +58,6 @@ const searchFilter = (data) => {
           map: map,
         });
       }
-      initMap();
     });
 
     console.log(resutl);
