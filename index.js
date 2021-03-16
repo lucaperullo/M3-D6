@@ -7,17 +7,18 @@ const startEngine = () => {
 
 const showLoading = () => {
   let spinner = document.getElementById("loading");
-  spinner.classList.add("d-none");
+  spinner.classList.toggle("d-none");
 };
-async function fetchUsers() {
+const fetchUsers = async () => {
   const response = await fetch("https://jsonplaceholder.typicode.com/users ");
   const data = await response.json();
   console.log(data);
 
   let search = document.querySelector("#searchbar");
   search.onchange = () => searchFilter(data);
+  showAllUsers(data);
   return data;
-}
+};
 
 const searchFilter = (data) => {
   let resutl = [];
@@ -26,11 +27,30 @@ const searchFilter = (data) => {
   let query = document.querySelector("#searchbar").value.toLowerCase();
 
   let filter = document.querySelector("#selector").value;
+  function initMap(lat, lng) {
+    // The location of Uluru
+    let position = {
+      lat,
+      lng,
+    };
+    const uluru = position;
+    // The map, centered at Uluru
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 4,
+      center: uluru,
+    });
+    // The marker, positioned at Uluru
+    const marker = new google.maps.Marker({
+      position: uluru,
+      map: map,
+    });
+  }
 
   if (filter === "name") {
-    console.log("we re in name selector else my friend!");
+    console.log("we re in name selector my friend!");
     const result = data.filter((name) => query === name.name.toLowerCase());
     resutl.push(result);
+
     resutl.forEach((element, idx) => {
       portfolio.innerHTML = `<div class="card">
         <div class="card-body">
@@ -45,26 +65,11 @@ const searchFilter = (data) => {
         <div id="map"></div>
       </div>`;
       // Initialize and add the map
-      function initMap() {
-        console.log();
-        // The location of Uluru
-        let position = {
-          lat: parseFloat(`${element[idx].address.geo.lat}`),
-          lng: parseFloat(`${element[idx].address.geo.lng}`),
-        };
-        const uluru = position;
-        // The map, centered at Uluru
-        const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 4,
-          center: uluru,
-        });
-        // The marker, positioned at Uluru
-        const marker = new google.maps.Marker({
-          position: uluru,
-          map: map,
-        });
-      }
-      initMap();
+
+      initMap(
+        parseFloat(`${element[idx].address.geo.lat}`),
+        parseFloat(`${element[idx].address.geo.lng}`)
+      );
     });
 
     console.log(resutl);
@@ -87,27 +92,11 @@ const searchFilter = (data) => {
         </div>
         <div id="map"></div>
       </div>`;
-      // Initialize and add the map
-      function initMap() {
-        console.log();
-        // The location of Uluru
-        let position = {
-          lat: parseFloat(`${element[idx].address.geo.lat}`),
-          lng: parseFloat(`${element[idx].address.geo.lng}`),
-        };
-        const uluru = position;
-        // The map, centered at Uluru
-        const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 4,
-          center: uluru,
-        });
-        // The marker, positioned at Uluru
-        const marker = new google.maps.Marker({
-          position: uluru,
-          map: map,
-        });
-      }
-      initMap();
+
+      initMap(
+        parseFloat(`${element[idx].address.geo.lat}`),
+        parseFloat(`${element[idx].address.geo.lng}`)
+      );
     });
 
     console.log(resutl);
@@ -128,17 +117,44 @@ const searchFilter = (data) => {
           </div>
           <div id="map"></div>
         </div>`;
-      // Initialize and add the map
-      function initMap() {
-        console.log();
-        // The location of Uluru
-        let position = {
-          lat: parseFloat(`${element[idx].address.geo.lat}`),
-          lng: parseFloat(`${element[idx].address.geo.lng}`),
-        };
-        const uluru = position;
-        // The map, centered at Uluru
-        const map = new google.maps.Map(document.getElementById("map"), {
+
+      initMap(
+        parseFloat(`${element[idx].address.geo.lat}`),
+        parseFloat(`${element[idx].address.geo.lng}`)
+      );
+    });
+
+    console.log(resutl);
+  }
+
+  console.log(query);
+};
+const showAllUsers = (data) => {
+  let div = document.querySelector("#allUsers");
+  data.forEach((element, idx) => {
+    div.innerHTML += `<div class="card">
+          <div class="card-body">
+            <h5 class="card-title">${element.name}</h5>
+            <p class="card-text"><b>username</b> : ${element.username}</p>
+            <a href="${element.website}"><b>website</b> :${element.website}</a>
+            <p class="card-text"><b>phone</b> : ${element.phone}</p>
+            <p class="card-text"><b>email</b> : ${element.email}</p>
+            <p class="card-text"><b>address</b> : ${element.address.street}, ${element.address.suite}, ${element.address.city} (${element.address.zipcode}) </p>
+            <p class="card-text"><small class="text-muted"><b>id</b> : ${element.id}</small></p>
+          </div>
+          <div id="map"></div>
+        </div>`;
+    function initMap(lat, lng) {
+      // The location of Uluru
+      let position = {
+        lat,
+        lng,
+      };
+      const uluru = position;
+      // The map, centered at Uluru
+      let maps = document.querySelectorAll("#map");
+      maps.forEach((element) => {
+        const map = new google.maps.Map(element, {
           zoom: 4,
           center: uluru,
         });
@@ -147,13 +163,12 @@ const searchFilter = (data) => {
           position: uluru,
           map: map,
         });
-      }
-      initMap();
-    });
-
-    console.log(resutl);
-  }
-
-  console.log(query);
+      });
+    }
+    initMap(
+      parseFloat(`${element.address.geo.lat}`),
+      parseFloat(`${element.address.geo.lng}`)
+    );
+  });
 };
 window.onload = startEngine();
