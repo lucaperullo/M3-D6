@@ -1,8 +1,14 @@
-const startEngine = async () => {
-  await fetchUsers();
-  await initMap();
+const startEngine = () => {
+  setTimeout(() => {
+    showLoading();
+  }, 5000);
+  fetchUsers();
 };
 
+const showLoading = () => {
+  let spinner = document.getElementById("loading");
+  spinner.classList.add("d-none");
+};
 async function fetchUsers() {
   const response = await fetch("https://jsonplaceholder.typicode.com/users ");
   const data = await response.json();
@@ -58,6 +64,7 @@ const searchFilter = (data) => {
           map: map,
         });
       }
+      initMap();
     });
 
     console.log(resutl);
